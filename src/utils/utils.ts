@@ -78,4 +78,9 @@ export class ResizeManager {
 	public static getFontSize(value: number): number {
 		return Math.round(value * ResizeManager.scalingRatio);
 	}
+
+	// Width and Height Functions
+	public static getScaledProperty(value: number): number {
+		return value * ResizeManager.scalingRatio;
+	}
 }

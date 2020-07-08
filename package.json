@@ -1,6 +1,21 @@
 {
-  "devDependencies": {
-    "phaser": "^3.23.0",
-    "typescript": "^3.9.5"
-  }
+	"name": "phaser3-typescript-responsive-template",
+	"version": "1.0.0",
+	"description": "A Phaser 3 Project Template using Parcel and TypeScript which scales for every screen size",
+	"scripts": {
+		"start": "parcel index.html",
+		"build": "parcel build index.html"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vedangasDARKNINJA/phaser3-typescript-responsive-template.git"
+	},
+	"author": "Vedang Javdekar",
+	"license": "MIT",
+	"licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
+	"devDependencies": {
+		"phaser": "^3.23.0",
+		"parcel-bundler": "^1.12.4",
+		"typescript": "^3.9.2"
+	}
 }
