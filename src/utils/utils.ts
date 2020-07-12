@@ -6,7 +6,7 @@ export class ResizeManager {
 	public static offsetX: boolean = true;
 	public static offsetY: boolean = true;
 	public static scalingRatio: number = 1;
-
+	
 	public static readonly referenceScreenSize = {
 		width: 1080,
 		height: 1920,
@@ -17,17 +17,18 @@ export class ResizeManager {
 	};
 	public static resize() {
 		console.log("resize canvas");
-		var canvas = game.canvas;
-		var windowWidth = window.innerWidth;
-		var windowHeight = window.innerHeight;
-		var windowRatio = windowWidth / windowHeight;
-		var gameRatio =
+		let canvas = game.canvas;
+		let windowWidth = window.innerWidth;
+		let windowHeight = window.innerHeight;
+		let windowRatio = windowWidth / windowHeight;
+
+		let gameRatio =
 			(game.config.width as number) / (game.config.height as number);
 
-		const referenceRatio =
+		let referenceRatio =
 			ResizeManager.referenceScreenSize.width /
 			ResizeManager.referenceScreenSize.height;
-
+		
 		if (windowRatio < gameRatio) {
 			canvas.style.width = windowWidth + "px";
 			canvas.style.height = windowWidth / gameRatio + "px";
@@ -49,23 +50,25 @@ export class ResizeManager {
 		}
 
 		if (ResizeManager.centeringOffsets.x === 0) {
-			ResizeManager.scalingRatio = game.canvas.width / 1080;
+			ResizeManager.scalingRatio =
+				game.canvas.width / ResizeManager.referenceScreenSize.width;
 		} else {
-			ResizeManager.scalingRatio = game.canvas.height / 1920;
+			ResizeManager.scalingRatio =
+				game.canvas.height / ResizeManager.referenceScreenSize.height;
 		}
 	}
 
 	//Positioning and Font Size functions
 
 	public static getX(value): number {
-		var newX = value * this.scalingRatio;
+		let newX = value * this.scalingRatio;
 		if (ResizeManager.offsetX) newX += ResizeManager.centeringOffsets.x;
 
 		return newX;
 	}
 
 	public static getY(value): number {
-		var newY = value * this.scalingRatio;
+		let newY = value * this.scalingRatio;
 		if (ResizeManager.offsetY) newY += ResizeManager.centeringOffsets.y;
 
 		return newY;
